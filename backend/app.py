@@ -3,6 +3,8 @@
 import numpy as np
 import joblib  # For loading the serialized model
 import pandas as pd  # For data manipulation
+# Added for starting Flask 
+import os
 from flask import Flask, request, jsonify  # For creating the Flask API
 
 # Initialize Flask app with a name
@@ -64,5 +66,15 @@ def predict_sales_batch():
 
 
 # Run the Flask app in debug mode
+#if __name__ == '__main__':
+#    superkart_api.run(debug=True)
+
 if __name__ == '__main__':
-    superkart_api.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+
+    superkart_api.run(
+        host="0.0.0.0",
+        port=port
+    )
+
+
