@@ -49,7 +49,7 @@ if st.button("Predict", type='primary'):
     if response.status_code == 200:
         result = response.json()
         predicted_sales = result["Sales"]
-        st.success(f"Predicted Product Store Sales Total: ₹{predicted_sales:.2f}")
+        st.success(f"Predicted Product Store Sales Total: {predicted_sales:.2f}")
     else:
         st.error("Unable to connect to the prediction API.")
 
