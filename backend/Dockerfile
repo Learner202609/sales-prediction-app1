@@ -13,4 +13,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # - `-w 4`: Uses 4 worker processes for handling requests
 # - `-b 0.0.0.0:7860`: Binds the server to port 7860 on all network interfaces
 # - `app:superkart_api`: Runs the Flask app (assuming `app.py` contains the Flask instance named `superkart_api`)
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT", "app:superkart_api"]
+# CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT", "app:superkart_api"]
+CMD gunicorn -w 4 -b 0.0.0.0:$PORT app:superkart_api
